@@ -152,7 +152,7 @@ resource "aws_instance" "ec2_instance" {
 
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "ec2-security-group"
+  name        = "ec2-security-group-${var.env}"
   description = "Allow HTTP and HTTPS traffic from the internet"
 
   ingress {
