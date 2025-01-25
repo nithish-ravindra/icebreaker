@@ -1,3 +1,3 @@
-output "vpc_id" {
-  value = data.aws_vpc.selected.id
+output "ec2_instance_arn" {
+  value = aws_instance.ec2_instance.arn
 }
