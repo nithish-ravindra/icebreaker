@@ -1,19 +1,3 @@
-resource "aws_iam_policy" "s3_list_policy" {
-  name        = "S3ListPolicy"
-  description = "Policy to list all S3 buckets"
-  policy      = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action   = "s3:ListAllMyBuckets"
-        Effect   = "Allow"
-        Resource = "*"
-      }
-    ]
-  })
-}
-
-
 resource "aws_instance" "ec2_instance" {
   ami           = "ami-043a5a82b6cf98947"  # Amazon linux 
   instance_type = "t2.micro"            
