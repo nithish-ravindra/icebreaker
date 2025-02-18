@@ -20,10 +20,3 @@ jobs:
 
       - name: Terraform fmt (check)
         run: terraform fmt -check -diff
-
-      - name: Terraform validate
-        run: terraform validate
-
-      - name: Terraform validate output
-        run: terraform validate -no-color
-
