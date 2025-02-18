@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2_instance" {
-  ami           = "ami-043a5a82b6cf98947"  # Amazon linux 
-  instance_type = "t2.micro"            
+  ami           = "ami-043a5a82b6cf98947" # Amazon linux 
+  instance_type = "t2.micro"
 
   tags = {
     Name = "icebreaker-test-${var.env}"
@@ -174,13 +174,12 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  
+    cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 23
-    to_port     = 23
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  
+    from_port = 23
+    to_port   = 23
+    protocol  = "tcp"
   }
 
   egress {
@@ -189,4 +188,22 @@ resource "aws_security_group" "ec2_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource "aws_iam_policy" "example_policy" {
+  name        = "test-polict-${var.env}"
+  description = "A simple example policy"
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+          "s3:ListBucket"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
 }
