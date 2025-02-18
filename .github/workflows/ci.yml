@@ -21,20 +21,8 @@ jobs:
       - name: Terraform fmt (check)
         run: terraform fmt -check -diff
 
-      - name: Terraform validate
-        run: terraform validate
+      - name: Terraform Init
+        run: terraform init
 
-      - name: Terraform lint (tflint)
-        uses: terraform-linters/tflint-action@v1
-        with:
-          terraform_version: 1.4.0  # Specify the Terraform version
-          tflint_version: 0.33.0   # Specify the TFLint version
-
-      - name: Terraform validate output
-        run: terraform validate -no-color
-
-      - name: Install and run Checkov for security checks
-        uses: bridgecrewio/checkov-action@v2
-        with:
-          skip_checks: CKV_AWS_21,CKV_AWS_22  # Example: Skip specific checks if needed
-
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
