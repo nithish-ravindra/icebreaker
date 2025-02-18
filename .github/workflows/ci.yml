@@ -20,3 +20,9 @@ jobs:
 
       - name: Terraform fmt (check)
         run: terraform fmt -check -diff
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
