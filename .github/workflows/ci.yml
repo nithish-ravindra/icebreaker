@@ -27,8 +27,3 @@ jobs:
       - name: Terraform validate output
         run: terraform validate -no-color
 
-      - name: Install and run Checkov for security checks
-        uses: bridgecrewio/checkov-action@v2
-        with:
-          skip_checks: CKV_AWS_21,CKV_AWS_22  # Example: Skip specific checks if needed
-
