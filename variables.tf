@@ -6,6 +6,7 @@ variable "aws_region" {
 variable "release_version" {
     description = "The release version of the deployment"
     type        = string
+    default     = "v1.0.0" 
 }
 
 variable "env" {
