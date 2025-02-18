@@ -190,8 +190,6 @@ resource "aws_security_group" "ec2_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-<<<<<<< Updated upstream
-=======
 
 resource "aws_iam_policy" "example_policy" {
   name        = "test-polict-${var.env}"
@@ -210,4 +208,3 @@ resource "aws_iam_policy" "example_policy" {
     ]
   })
 }
->>>>>>> Stashed changes
